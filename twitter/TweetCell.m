@@ -22,7 +22,7 @@
     //self.profilePicture.image = self.tweet.user.profileImage;
     self.userName.text = self.tweet.user.name;
     self.handleDate.text = self.tweet.user.screenName;
-    [ self.profilePicture setImageWithURL:tweet.user.profileImage];
+    [self.profilePicture setImageWithURL:tweet.user.profileImage];
     
 }
 
