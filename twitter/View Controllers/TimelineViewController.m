@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSArray *tweets;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *filteredData;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 
 
@@ -26,28 +27,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self. refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(beginRefresh) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview: self.refreshControl atIndex:0];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    /*
-    // Get timeline
+    
+    [self beginRefresh];
+  
+}
+
+-(void)beginRefresh {
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweetDictionaries, NSError *error) {
         if (tweetDictionaries) {
-            NSMutableArray *tweets2  = [Tweet tweetsWithArray:tweetDictionaries];
-            NSLog(@"😎😎😎 Successfully loaded home timeline");
-            self.tweets = [[NSArray alloc] init];
-            for (NSDictionary *dictionary in tweets2) {
-                NSString *text = dictionary[@"text"];
-                NSLog(@"%@", text);
-            }
-        } else {
-            NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
-        }
-    }];
-    */
-    [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweetDictionaries, NSError *error) {
-        if (tweetDictionaries) {
-            NSLog(@"😎😎😎 Successfully loaded home timeline");
+            // NSLog(@"😎😎😎 Successfully loaded home timeline");
             self.tweets = tweetDictionaries;
             self.tweets = [Tweet tweetsWithArray: tweetDictionaries];
             [self.tableView reloadData];
@@ -55,6 +49,8 @@
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
     }];
+    [self.tableView reloadData];
+    [self.refreshControl endRefreshing];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,6 +82,9 @@
     return cell;
 }
 
+// Makes a network request to get updated data
+// Updates the tableView with the new data
+// Hides the RefreshControl
 
 
 @end
