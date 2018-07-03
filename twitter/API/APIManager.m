@@ -6,17 +6,20 @@
 //  Copyright © 2018 Emerson Malca. All rights reserved.
 //
 
+#import "Tweet.h"
 #import "APIManager.h"
 
 static NSString * const baseURLString = @"https://api.twitter.com";
-static NSString * const consumerKey = // Enter your consumer key here
-static NSString * const consumerSecret = // Enter your consumer secret here
+static NSString * const consumerKey = @"iBNePtulMOjjT7aHTDHGWNIUy";
+static NSString * const consumerSecret = @"9KfRbapSBbLyK3PcJFANW36UzH684n8B5hZ6PgZu7aoTktZf8O";
 
 @interface APIManager()
 
 @end
 
 @implementation APIManager
+
+
 
 + (instancetype)shared {
     static APIManager *sharedManager = nil;
@@ -48,8 +51,18 @@ static NSString * const consumerSecret = // Enter your consumer secret here
 }
 
 - (void)getHomeTimelineWithCompletion:(void(^)(NSArray *tweets, NSError *error))completion {
-    
     [self GET:@"1.1/statuses/home_timeline.json"
+   parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
+       // Success
+       
+       //NSMutableArray *tweets  = [Tweet tweetsWithArray:tweetDictionaries];
+       completion(tweetDictionaries, nil);
+   } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+       // There was a problem
+       completion(nil, error);
+   }];
+}
+   /* [self GET:@"1.1/statuses/home_timeline.json"
    parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
        
        // Manually cache the tweets. If the request fails, restore from cache if possible.
@@ -57,8 +70,9 @@ static NSString * const consumerSecret = // Enter your consumer secret here
        [[NSUserDefaults standardUserDefaults] setValue:data forKey:@"hometimeline_tweets"];
 
        completion(tweetDictionaries, nil);
-       
-   } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    
+   
+failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
        
        NSArray *tweetDictionaries = nil;
        
@@ -70,6 +84,10 @@ static NSString * const consumerSecret = // Enter your consumer secret here
        
        completion(tweetDictionaries, error);
    }];
+    
 }
+    */
+
+
 
 @end
