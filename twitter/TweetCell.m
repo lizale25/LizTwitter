@@ -9,6 +9,8 @@
 #import "TweetCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "Tweet.h"
+#import "APIManager.h"
+#import <UIImageView+AFNetworking.h>
 
 @implementation TweetCell
 
@@ -23,6 +25,12 @@
     self.userName.text = self.tweet.user.name;
     self.handleDate.text = self.tweet.user.screenName;
     [self.profilePicture setImageWithURL:tweet.user.profileImage];
+    
+    
+    self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2;
+    self.profilePicture.clipsToBounds = YES;
+   // self.profilePicture.layer.borderWidth = 3.0f;
+    //self.profilePicture.layer.borderColor = [UIColor whiteColor].CGColor;
     self.tweetText.text = self.tweet.text;
     
 }
@@ -32,5 +40,10 @@
 
     // Configure the view for the selected state
 }
+- (IBAction)didTapFavorite:(id)sender {
+    self.tweet.favorited = YES;
+    self.tweet.favoriteCount += 1;
+}
+
 
 @end

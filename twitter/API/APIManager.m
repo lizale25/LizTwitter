@@ -5,7 +5,6 @@
 //  Created by emersonmalca on 5/28/18.
 //  Copyright © 2018 Emerson Malca. All rights reserved.
 //
-
 #import "Tweet.h"
 #import "APIManager.h"
 
@@ -74,6 +73,7 @@ Tweet *tweet = [[Tweet alloc]initWithDictionary:tweetDictionary];
         completion(nil, error);
     }];
 }
+
 
 
 @end

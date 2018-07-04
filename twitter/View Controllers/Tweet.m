@@ -15,7 +15,7 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
-        //self.text = dictionary[@"text"];
+        self.text = dictionary[@"text"];
         // Is this a re-tweet?
         NSDictionary *originalTweet = dictionary[@"retweeted_status"];
         
