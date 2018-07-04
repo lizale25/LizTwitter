@@ -33,6 +33,7 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.rowHeight = 150;
     
     [self beginRefresh];
   
