@@ -11,10 +11,11 @@
 #import "Tweet.h"
 #import "TweetCell.h"
 #import <UIImageView+AFNetworking.h>
+#import "ComposeViewController.h"
 
-@interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) NSArray *tweets;
+@property (nonatomic, strong) NSMutableArray *tweets;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *filteredData;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
@@ -83,9 +84,21 @@
     return cell;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    UINavigationController *navigationController = [segue destinationViewController];
+    ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+    composeController.delegate = self;
+}
+
+-(void)didTweet:(Tweet *)tweet {
+    [self.tweets addObject: tweet];
+    [self.tableView reloadData];
+}
+
+
+
 // Makes a network request to get updated data
 // Updates the tableView with the new data
 // Hides the RefreshControl
-
 
 @end

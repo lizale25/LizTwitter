@@ -8,15 +8,17 @@
 
 #import "Tweet.h"
 #import "User.h"
+#import "TweetCell.h"
 
 @implementation Tweet 
-
+ 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
-        
+        //self.text = dictionary[@"text"];
         // Is this a re-tweet?
         NSDictionary *originalTweet = dictionary[@"retweeted_status"];
+        
         if(originalTweet != nil){
             NSDictionary *userDictionary = dictionary[@"user"];
             self.retweetedByUser = [[User alloc] initWithDictionary:userDictionary];

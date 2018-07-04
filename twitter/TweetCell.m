@@ -23,10 +23,9 @@
     self.userName.text = self.tweet.user.name;
     self.handleDate.text = self.tweet.user.screenName;
     [self.profilePicture setImageWithURL:tweet.user.profileImage];
+    self.tweetText.text = self.tweet.text;
     
 }
-
-
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
