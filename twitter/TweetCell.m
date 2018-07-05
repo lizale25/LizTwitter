@@ -60,7 +60,7 @@
     
 }
 - (IBAction)didTapRetweet:(id)sender {
-    [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
+    [[APIManager shared] retweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
         if(error){
             NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
         }

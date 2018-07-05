@@ -53,7 +53,6 @@ static NSString * const consumerSecret = @"9KfRbapSBbLyK3PcJFANW36UzH684n8B5hZ6P
     [self GET:@"1.1/statuses/home_timeline.json"
    parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
        // Success
-       //NSMutableArray *tweets  = [Tweet tweetsWithArray:tweetDictionaries];
        completion(tweetDictionaries, nil);
    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
        // There was a problem
@@ -87,7 +86,7 @@ Tweet *tweet = [[Tweet alloc]initWithDictionary:tweetDictionary];
     NSString *urlString = @"1.1/statuses/retweet/";
     NSDictionary *parameters = @{};
     urlString = [urlString stringByAppendingString:[NSString stringWithFormat:@"%@", tweet.idStr]];
-                 urlString = [urlString stringByAppendingString:@".json"];
+    urlString = [urlString stringByAppendingString:@".json"];
     [self POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable tweetDictionary) {
         Tweet *tweet = [[Tweet alloc]initWithDictionary:tweetDictionary];
         completion(tweet, nil);
@@ -95,4 +94,6 @@ Tweet *tweet = [[Tweet alloc]initWithDictionary:tweetDictionary];
         completion(nil, error);
     }];
 }
+
+//
 @end
