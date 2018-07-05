@@ -25,7 +25,8 @@
     self.userName.text = self.tweet.user.name;
     self.handleDate.text = self.tweet.user.screenName;
     [self.profilePicture setImageWithURL:tweet.user.profileImage];
-    
+    self.numberfavorite.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
+    self.numberRetweet.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
     
     self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2;
     self.profilePicture.clipsToBounds = YES;
@@ -42,16 +43,32 @@
     // Configure the view for the selected state
 }
 - (IBAction)didTapFavorite:(id)sender {
-    self.tweet.favorited = YES;
-    self.tweet.favoriteCount += 1;
-    [_favoriteButton setSelected:YES];
-    _numberfavorite.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
+       self.numberfavorite.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
     [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
         if(error){
             NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
         }
         else{
+            self.tweet.favorited = YES;
+            self.tweet.favoriteCount += 1;
+            [self.favoriteButton setSelected:YES];
+            self.numberfavorite.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
             NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+        }
+    }];
+    
+    
+}
+- (IBAction)didTapRetweet:(id)sender {
+    [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
+        if(error){
+            NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
+        }
+        else{
+            self.tweet.retweeted = YES;
+            self.tweet.retweetCount += 1;
+            [self.retweetButton setSelected:YES];
+            NSLog(@"Successfully retweeted the following Tweet: %@", tweet.text);
         }
     }];
     
