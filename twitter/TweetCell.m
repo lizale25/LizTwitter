@@ -47,17 +47,30 @@
     [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
         if(error){
             NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
+            [[APIManager shared] unfavorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
+                if(error){
+                    self.tweet.favorited = YES;
+                    self.tweet.favoriteCount += 1;
+                    [self.favoriteButton setSelected:YES];
+                    self.numberfavorite.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
+                    NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+                }
+                else{
+                    self.tweet.favoriteCount -= 1;
+                    [self.favoriteButton setSelected:NO];
+                    self.numberfavorite.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
+                    NSLog(@"Successfully unfavorited the following Tweet: %@", tweet.text);
+                }
+                }];
         }
-        else{
-            self.tweet.favorited = YES;
-            self.tweet.favoriteCount += 1;
-            [self.favoriteButton setSelected:YES];
-            self.numberfavorite.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
-            NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
-        }
-    }];
-    
-    
+            else {
+                self.tweet.favorited = YES;
+                self.tweet.favoriteCount += 1;
+                [self.favoriteButton setSelected:YES];
+                self.numberfavorite.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
+                 NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+            }
+     }];
 }
 - (IBAction)didTapRetweet:(id)sender {
     [[APIManager shared] retweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
