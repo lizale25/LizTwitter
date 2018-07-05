@@ -68,6 +68,7 @@
             self.tweet.retweeted = YES;
             self.tweet.retweetCount += 1;
             [self.retweetButton setSelected:YES];
+            self.numberRetweet.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
             NSLog(@"Successfully retweeted the following Tweet: %@", tweet.text);
         }
     }];
