@@ -13,29 +13,23 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *closeButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *tweetButton;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UILabel *wordCount;
 
 @end
 
 @implementation ComposeViewController
 
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.textView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 - (IBAction)closeButton:(id)sender {
   [self dismissViewControllerAnimated:true completion:nil];
     
@@ -47,10 +41,18 @@
         }
             else {
                 NSLog(@"😫😫😫 Error posting tweet: %@", error.localizedDescription);
-            
         }
-        
     }];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    int characterLimit = 140;
+    NSString *newText = [self.textView.text stringByReplacingCharactersInRange:range withString:text];
+    NSString *counter = @"Word count: ";
+    self.wordCount.text =  [counter stringByAppendingString:[NSString stringWithFormat:@"%d", newText.length]];
+    return newText.length < characterLimit;
+    
+
 }
 
 @end

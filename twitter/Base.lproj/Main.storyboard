@@ -100,13 +100,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="0" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wfr-nI-FAt">
-                                                    <rect key="frame" x="372" y="93" width="42" height="33"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="handle+date" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQC-cQ-V0u">
                                                     <rect key="frame" x="161.33333333333334" y="16.333333333333332" width="55.333333333333343" height="15.666666666666668"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
@@ -143,10 +136,10 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FoR-CM-ISn">
-                                                            <rect key="frame" x="63" y="18" width="49" height="12"/>
+                                                            <rect key="frame" x="67" y="18" width="49" height="12"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
-                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -220,15 +213,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Liz is tweeting from her app" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gfo-FJ-PgB">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="345"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Liz is tweeting from her app" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gfo-FJ-PgB">
+                                <rect key="frame" x="20" y="91" width="317" height="207"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word count:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71i-q8-l8u">
+                                <rect key="frame" x="227" y="328" width="185" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1m0-Fg-P91" firstAttribute="trailing" secondItem="71i-q8-l8u" secondAttribute="trailing" constant="2" id="FbC-uE-itN"/>
+                            <constraint firstItem="Gfo-FJ-PgB" firstAttribute="top" secondItem="1m0-Fg-P91" secondAttribute="top" constant="27" id="Tju-pG-LlB"/>
+                            <constraint firstItem="1m0-Fg-P91" firstAttribute="bottom" secondItem="71i-q8-l8u" secondAttribute="bottom" constant="387" id="UDC-3D-vdq"/>
+                            <constraint firstItem="1m0-Fg-P91" firstAttribute="trailing" secondItem="Gfo-FJ-PgB" secondAttribute="trailing" constant="77" id="UyT-7O-906"/>
+                            <constraint firstItem="71i-q8-l8u" firstAttribute="leading" secondItem="1m0-Fg-P91" secondAttribute="leading" constant="227" id="cjc-k8-Xu4"/>
+                            <constraint firstItem="Gfo-FJ-PgB" firstAttribute="leading" secondItem="1m0-Fg-P91" secondAttribute="leading" constant="20" id="mJ9-bW-wra"/>
+                            <constraint firstItem="71i-q8-l8u" firstAttribute="top" secondItem="Gfo-FJ-PgB" secondAttribute="bottom" constant="30" id="zO8-WX-IFT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="1m0-Fg-P91"/>
                     </view>
                     <navigationItem key="navigationItem" id="Bae-X0-Ivg">
@@ -247,11 +254,12 @@
                         <outlet property="closeButton" destination="uwj-dB-t10" id="2D5-pZ-igE"/>
                         <outlet property="textView" destination="Gfo-FJ-PgB" id="wof-OH-gkX"/>
                         <outlet property="tweetButton" destination="9iD-x8-lDz" id="aZy-zZ-jC1"/>
+                        <outlet property="wordCount" destination="71i-q8-l8u" id="n9p-bo-puv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLd-3t-MIs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3385" y="37"/>
+            <point key="canvasLocation" x="3384.057971014493" y="36.684782608695656"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WUT-Ke-VeR">

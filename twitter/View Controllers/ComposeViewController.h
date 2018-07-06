@@ -13,6 +13,7 @@
 @protocol ComposeViewControllerDelegate
 
 - (void)didTweet:(Tweet *)tweet;
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;
 
 @end
 @interface ComposeViewController : UIViewController

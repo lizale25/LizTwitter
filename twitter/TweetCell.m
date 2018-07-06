@@ -23,7 +23,8 @@
     _tweet = tweet;
     //self.profilePicture.image = self.tweet.user.profileImage;
     self.userName.text = self.tweet.user.name;
-    self.handleDate.text = self.tweet.user.screenName;
+    NSString *a = @"@";
+    self.handleDate.text = [a stringByAppendingString:self.tweet.user.screenName];
     [self.profilePicture setImageWithURL:tweet.user.profileImage];
     self.numberfavorite.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
     self.numberRetweet.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
