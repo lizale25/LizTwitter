@@ -1,29 +1,45 @@
-# Project 2 - *Name of App Here*
+# Project 4 - *Name of App Here*
 
-**Name of your app** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
+**Name of your app** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
 Time spent: **X** hours spent in total
 
 ## User Stories
 
-The following **required** functionality is complete:
+The following **required** functionality is completed:
 
-- [ ] User can view a list of movies currently playing in theaters from The Movie Database.
-- [ ] Poster images are loaded using the UIImageView category in the AFNetworking library.
-- [ ] User sees a loading state while waiting for the movies API.
-- [ ] User can pull to refresh the movie list.
+- [ ] User sees app icon in home screen and styled launch screen
+- [ ] User can sign in using OAuth login flow
+- [ ] User can Logout
+- [ ] User can view last 20 tweets from their home timeline
+- [ ] In the home timeline, user can view tweet with the user profile picture, username, tweet text, and timestamp.
+- [ ] User can pull to refresh.
+- [ ] User can tap the retweet and favorite buttons in a tweet cell to retweet and/or favorite a tweet.
+- [ ] User can compose a new tweet by tapping on a compose button.
+- [ ] Using AutoLayout, the Tweet cell should adjust it's layout for iPhone 7, Plus and SE device sizes as well as accommodate device rotation.
+- [ ] The current signed in user will be persisted across restarts
 
 The following **optional** features are implemented:
 
-- [ ] User sees an error message when there's a networking error.
-- [ ] Movies are displayed using a CollectionView instead of a TableView.
-- [ ] User can search for a movie.
-- [ ] All images fade in as they are loading.
-- [ ] User can view the large movie poster by tapping on a cell.
-- [ ] For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
-- [ ] Customize the selection effect of the cell.
-- [ ] Customize the navigation bar.
-- [ ] Customize the UI.
+- [ ] Tweet Details Page: User can tap on a tweet to view it, with controls to retweet, favorite, and reply.
+- [ ] User can view their profile in a *profile tab*
+   - Contains the user header view: picture and tagline
+   - Contains a section with the users basic stats: # tweets, # following, # followers
+   - [ ] Profile view should include that user's timeline
+- [ ] User should display the relative timestamp for each tweet "8m", "7h"
+- [ ] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count. Refer to [[this guide|unretweeting]] for help on implementing unretweeting.
+- [ ] Links in tweets are clickable.
+- [ ] User can tap the profile image in any tweet to see another user's profile
+   - Contains the user header view: picture and tagline
+   - Contains a section with the users basic stats: # tweets, # following, # followers
+- [ ] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
+- [ ] When composing, you should have a countdown for the number of characters remaining for the tweet (out of 140) (**1 point**)
+- [ ] After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
+- [ ] User can reply to any tweet, and replies should be prefixed with the username and the reply_id should be set when posting the tweet (**2 points**)
+- [ ] User sees embedded images in tweet if available 
+- [ ] User can switch between timeline, mentions, or profile view through a tab bar (**3 points**)
+- [ ] Profile Page: pulling down the profile page should blur and resize the header image. (**4 points**)
+
 
 The following **additional** features are implemented:
 
