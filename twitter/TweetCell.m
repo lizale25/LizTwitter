@@ -16,7 +16,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
 }
 
 -(void)setTweet:(Tweet *)tweet {

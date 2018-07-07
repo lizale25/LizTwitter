@@ -19,9 +19,6 @@
 
 @implementation ComposeViewController
 
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.textView.delegate = self;
@@ -51,7 +48,6 @@
     NSString *counter = @"Word count: ";
     self.wordCount.text =  [counter stringByAppendingString:[NSString stringWithFormat:@"%d", newText.length]];
     return newText.length < characterLimit;
-    
 
 }
 

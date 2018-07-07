@@ -11,19 +11,16 @@
 
 @interface Tweet : NSObject
 
-// MARK: Properties
-@property (nonatomic, strong) NSString *idStr; // For favoriting, retweeting & replying
-@property (strong, nonatomic) NSString *text; // Text content of tweet
-@property (nonatomic) int favoriteCount; // Update favorite count label
-@property (nonatomic) BOOL favorited; // Configure favorite button
-@property (nonatomic) int retweetCount; // Update favorite count label
-@property (nonatomic) BOOL retweeted; // Configure retweet button
-@property (strong, nonatomic) User *user; // Contains name, screenname, etc. of tweet author
-@property (strong, nonatomic) NSString *createdAtString; // Display date
-// For Retweets
-@property (strong, nonatomic) User *retweetedByUser;  // user who retweeted if tweet is retweet
+@property (nonatomic, strong) NSString *idStr;
+@property (strong, nonatomic) NSString *text;
+@property (nonatomic) int favoriteCount;
+@property (nonatomic) BOOL favorited;
+@property (nonatomic) int retweetCount;
+@property (nonatomic) BOOL retweeted;
+@property (strong, nonatomic) User *user;
+@property (strong, nonatomic) NSString *createdAtString;
+@property (strong, nonatomic) User *retweetedByUser;
 @property (nonatomic) NSString *timeVal;
 + (NSMutableArray *)tweetsWithArray:(NSArray *)dictionaries;
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
-
 @end

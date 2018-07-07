@@ -21,7 +21,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 @property (weak, nonatomic) IBOutlet UILabel *numberRetweet;
 @property (weak, nonatomic) IBOutlet UILabel *timeStamp;
-
 @property (strong, nonatomic) Tweet * tweet;
 
 @end

@@ -18,8 +18,6 @@ static NSString * const consumerSecret = @"9KfRbapSBbLyK3PcJFANW36UzH684n8B5hZ6P
 
 @implementation APIManager
 
-
-
 + (instancetype)shared {
     static APIManager *sharedManager = nil;
     static dispatch_once_t onceToken;
