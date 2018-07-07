@@ -36,7 +36,7 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.rowHeight = 150;
+    self.tableView.rowHeight = 130;
     
     [self beginRefresh];
   
@@ -87,11 +87,15 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if(![segue.identifier isEqualToString:@"details"]){
     UINavigationController *navigationController = [segue destinationViewController];
     ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
     composeController.delegate = self;
 }
+    
+}
 
+       
 -(void)didTweet:(Tweet *)tweet {
     [self.tweets addObject: tweet];
     [self.tableView reloadData];

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E3953E220F040A100D0FF7D /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953E120F040A100D0FF7D /* DetailsViewController.m */; };
 		3E7856B320EAD10B0065B9FC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7856B220EAD10B0065B9FC /* User.m */; };
 		3E7856B620EAD2E20065B9FC /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7856B520EAD2E20065B9FC /* Tweet.m */; };
 		3E7A593A20EB1CC200A6AD84 /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A593920EB1CC200A6AD84 /* TweetCell.m */; };
@@ -25,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		1397EA94AE1DE5F26C1724FD /* Pods-twitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter.release.xcconfig"; path = "Pods/Target Support Files/Pods-twitter/Pods-twitter.release.xcconfig"; sourceTree = "<group>"; };
+		3E3953E020F040A100D0FF7D /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		3E3953E120F040A100D0FF7D /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		3E7856B120EAD10B0065B9FC /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		3E7856B220EAD10B0065B9FC /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		3E7856B420EAD2E20065B9FC /* Tweet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
@@ -125,6 +128,10 @@
 		6AD278F820BCBC140085BC29 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3E7856B220EAD10B0065B9FC /* User.m */,
+				3E7856B120EAD10B0065B9FC /* User.h */,
+				3E7856B420EAD2E20065B9FC /* Tweet.h */,
+				3E7856B520EAD2E20065B9FC /* Tweet.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -145,10 +152,8 @@
 				6AD2790820BCC04D0085BC29 /* TimelineViewController.m */,
 				3EA7DC5320EC30D900E34FA3 /* ComposeViewController.h */,
 				3EA7DC5420EC30D900E34FA3 /* ComposeViewController.m */,
-				3E7856B120EAD10B0065B9FC /* User.h */,
-				3E7856B220EAD10B0065B9FC /* User.m */,
-				3E7856B420EAD2E20065B9FC /* Tweet.h */,
-				3E7856B520EAD2E20065B9FC /* Tweet.m */,
+				3E3953E020F040A100D0FF7D /* DetailsViewController.h */,
+				3E3953E120F040A100D0FF7D /* DetailsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -256,6 +261,7 @@
 			files = (
 				3E7A593A20EB1CC200A6AD84 /* TweetCell.m in Sources */,
 				6AD278F320BCA6020085BC29 /* BDBOAuth1SessionManager+SFAuthenticationSession.m in Sources */,
+				3E3953E220F040A100D0FF7D /* DetailsViewController.m in Sources */,
 				3E7856B320EAD10B0065B9FC /* User.m in Sources */,
 				3EA7DC5520EC30D900E34FA3 /* ComposeViewController.m in Sources */,
 				6AD278E820BC4B970085BC29 /* main.m in Sources */,
@@ -404,8 +410,9 @@
 			baseConfigurationReference = 75895B6507775E8AFBEEA2D9 /* Pods-twitter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BN7TCB94L4;
 				INFOPLIST_FILE = twitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -413,6 +420,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.twitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -422,8 +430,9 @@
 			baseConfigurationReference = 1397EA94AE1DE5F26C1724FD /* Pods-twitter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BN7TCB94L4;
 				INFOPLIST_FILE = twitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -431,6 +440,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.twitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

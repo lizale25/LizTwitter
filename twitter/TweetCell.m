@@ -21,22 +21,18 @@
 
 -(void)setTweet:(Tweet *)tweet {
     _tweet = tweet;
-    //self.profilePicture.image = self.tweet.user.profileImage;
+
     self.userName.text = self.tweet.user.name;
     NSString *a = @"@";
     self.handleDate.text = [a stringByAppendingString:self.tweet.user.screenName];
     [self.profilePicture setImageWithURL:tweet.user.profileImage];
     self.numberfavorite.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
     self.numberRetweet.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
-    
     self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2;
     self.profilePicture.clipsToBounds = YES;
-   // self.profilePicture.layer.borderWidth = 3.0f;
-    //self.profilePicture.layer.borderColor = [UIColor whiteColor].CGColor;
     self.tweetText.text = self.tweet.text;
-    
-    
-    
+    self.timeStamp.text = self.tweet.timeVal;
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
