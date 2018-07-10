@@ -47,8 +47,8 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. Segues
+2. Autolayout
 
 ## Video Walkthrough
 
@@ -59,8 +59,7 @@ Here's a walkthrough of implemented user stories:
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
-
-Describe any challenges encountered while building the app.
+Time management and connecting segues were my biggest issues.
 
 ## Credits
 
