@@ -75,6 +75,11 @@
     ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
     composeController.delegate = self;
     }
+   // else if (sender isKindOfClass:[TweetCell class]) {
+     //   NSLog(@"hgfyfj");
+
+   // }
+    
 }
        
 -(void)didTweet:(Tweet *)tweet {
